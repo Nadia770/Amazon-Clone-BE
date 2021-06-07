@@ -31,6 +31,7 @@ CREATE TABLE reviews (
   author VARCHAR(100),
   helpful_vote_count INT,
   star_count VARCHAR(40),
-  product_id INT
+  product_id INT, 
+  FOREIGN KEY (product_id) REFERENCES products(products_id)
 );
 
