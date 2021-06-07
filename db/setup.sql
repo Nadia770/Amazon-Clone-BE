@@ -27,7 +27,7 @@ CREATE TABLE products (
 
 CREATE TABLE reviews (
   review_id SERIAL PRIMARY KEY,
-  review_body TEXT,
+  body TEXT,
   created_at TEXT,
   author TEXT,
   helpful_count INT,
