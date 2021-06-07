@@ -1,4 +1,8 @@
-const { changeProductsKey, makeRefObject } = require("../db/utils/utils");
+const {
+  changeProductsKey,
+  makeRefObject,
+  switchKeyReference,
+} = require("../db/utils/utils");
 
 describe("changeProductsKey", () => {
   test("should return an empty array if passed an empty array", () => {
@@ -184,7 +188,7 @@ describe("changeProductsKey", () => {
   });
 });
 
-describe.only("makeRefObject", () => {
+describe("makeRefObject", () => {
   test("should return an empty array if passed an empty array", () => {
     expect(makeRefObject([])).toEqual({});
   });
@@ -246,13 +250,181 @@ describe.only("makeRefObject", () => {
     ];
 
     let actual = {
-      1: "Whiz Blender",
-      2: "Teddys Toaster",
-      3: "Russell Hobbs 24360 Inspire Electric Kettle",
+      "Whiz Blender": 1,
+      "Teddys Toaster": 2,
+      "Russell Hobbs 24360 Inspire Electric Kettle": 3,
     };
 
-    expect(makeRefObject(productData, "product_id", "product_name")).toEqual(
+    expect(makeRefObject(productData, "product_name", "product_id")).toEqual(
       actual
     );
+  });
+});
+
+describe("switchKeyReference", () => {
+  const refObject = {
+    "Whiz Blender": 1,
+    "Teddys Toaster": 2,
+    "Russell Hobbs 24360 Inspire Electric Kettle": 3,
+  };
+
+  test("should return an empty array when called with an empty array", () => {
+    expect(switchKeyReference([])).toEqual([]);
+  });
+  test("should switchKeyReference works on single object", () => {
+    const input = [
+      {
+        body: "Great product, happy with my purchase",
+        created_at: 1511354163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 5,
+        product: "Whiz Blender",
+      },
+    ];
+    const actual = switchKeyReference(
+      input,
+      refObject,
+      "product",
+      "product_id"
+    );
+    const output = [
+      {
+        body: "Great product, happy with my purchase",
+        created_at: 1511354163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 5,
+        product_id: 1,
+      },
+    ];
+
+    expect(actual).toEqual(output);
+  });
+  test("should switchKeyReference works on an array of several objects", () => {
+    const input = [
+      {
+        body: "Great product, happy with my purchase",
+        created_at: 1511354163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 5,
+        product: "Whiz Blender",
+      },
+      {
+        body: "Item looked like it had been used before, requested a refund",
+        created_at: 1479818163389,
+        author: "Sarah",
+        helpful_count: 2,
+        star_count: 2,
+        product: "Teddys Toaster",
+      },
+      {
+        body: "Regular shmegular",
+        created_at: 11416746163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 2,
+        product: "Russell Hobbs 24360 Inspire Electric Kettle",
+      },
+    ];
+
+    const actual = switchKeyReference(
+      input,
+      refObject,
+      "product",
+      "product_id"
+    );
+    const output = [
+      {
+        body: "Great product, happy with my purchase",
+        created_at: 1511354163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 5,
+        product_id: 1,
+      },
+      {
+        body: "Item looked like it had been used before, requested a refund",
+        created_at: 1479818163389,
+        author: "Sarah",
+        helpful_count: 2,
+        star_count: 2,
+        product_id: 2,
+      },
+      {
+        body: "Regular shmegular",
+        created_at: 11416746163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 2,
+        product_id: 3,
+      },
+    ];
+
+    expect(actual).toEqual(output);
+  });
+  test("input array should not equal output array", () => {
+    const input = [
+      {
+        body: "Great product, happy with my purchase",
+        created_at: 1511354163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 5,
+        product: "Whiz Blender",
+      },
+      {
+        body: "Item looked like it had been used before, requested a refund",
+        created_at: 1479818163389,
+        author: "Sarah",
+        helpful_count: 2,
+        star_count: 2,
+        product: "Teddys Toaster",
+      },
+      {
+        body: "Regular shmegular",
+        created_at: 11416746163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 2,
+        product: "Russell Hobbs 24360 Inspire Electric Kettle",
+      },
+    ];
+
+    const actual = switchKeyReference(
+      input,
+      refObject,
+      "product",
+      "product_id"
+    );
+
+    expect(actual).not.toBe(input);
+    expect(input).toEqual([
+      {
+        body: "Great product, happy with my purchase",
+        created_at: 1511354163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 5,
+        product: "Whiz Blender",
+      },
+      {
+        body: "Item looked like it had been used before, requested a refund",
+        created_at: 1479818163389,
+        author: "Sarah",
+        helpful_count: 2,
+        star_count: 2,
+        product: "Teddys Toaster",
+      },
+      {
+        body: "Regular shmegular",
+        created_at: 11416746163389,
+        author: "AT",
+        helpful_count: 5,
+        star_count: 2,
+        product: "Russell Hobbs 24360 Inspire Electric Kettle",
+      },
+    ]);
   });
 });
