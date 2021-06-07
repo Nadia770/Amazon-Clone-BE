@@ -1,10 +1,25 @@
-exports.changeProductsKey = (arr, newKey, keyToReplace) => {
+exports.changeProductsKey = (
+  arr,
+  newKey1,
+  keyToReplace1,
+  newKey2,
+  keyToReplace2,
+  newKey3,
+  keyToReplace3
+) => {
   let newObj = {};
-  if (arr.length < 1) return arr;
 
-  arr[0][newKey] = arr[0][keyToReplace];
-  delete arr[0][keyToReplace];
+  return arr.map((object) => {
+    newObj = { ...object };
+    newObj[newKey1] = newObj[keyToReplace1];
+    delete newObj[keyToReplace1];
 
-  console.log(arr);
-  return arr;
+    newObj[newKey2] = newObj[keyToReplace2];
+    delete newObj[keyToReplace2];
+
+    newObj[newKey3] = newObj[keyToReplace3];
+    delete newObj[keyToReplace3];
+    console.log(newObj);
+    return newObj;
+  });
 };
