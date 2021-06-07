@@ -9,6 +9,7 @@ CREATE DATABASE amazon_clone;
 CREATE TABLE products (
   product_id SERIAL PRIMARY KEY,
   product_name VARCHAR(40),
+  price INT,
   average_rating INT,
   product_description VARCHAR(400),
   product_url VARCHAR(100),
