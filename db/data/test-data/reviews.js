@@ -5,6 +5,7 @@ module.exports = [
     author: "AT",
     helpful_count: 5,
     star_count: 5,
+    product: "Whiz Blender"
   },
   {
     body: "Item looked like it had been used before, requested a refund",
@@ -12,6 +13,7 @@ module.exports = [
     author: "Sarah",
     helpful_count: 2,
     star_count: 2,
+    product: "Teddys Toaster"
   },
   {
     body: "Regular shmegular",
@@ -19,5 +21,6 @@ module.exports = [
     author: "AT",
     helpful_count: 5,
     star_count: 2,
+    product: "Russell Hobbs 24360 Inspire Electric Kettle"
   },
 ];

@@ -13,7 +13,8 @@ exports.seed = function (knex) {
   return knex
     .insert(formattedProductData)
     .into('products')
-    .then(()=>{
-      return knex
+    .returning('*')
+    .then((returnedProducts)=>{
+      console.log(returnedProducts)
     })
 }

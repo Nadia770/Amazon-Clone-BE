@@ -20,7 +20,7 @@ module.exports = [
     in_stock: true,
   },
   {
-    name: "Russell Hobbs 24360 Inspire Electric Kettle,",
+    name: "Russell Hobbs 24360 Inspire Electric Kettle",
     price: 300,
     image:
       "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.ikohs.com%2Fuk%2F910422%2Fblender-matt-800w-american-style-jug-blender.jpg&imgrefurl=https%3A%2F%2Fwww.ikohs.com%2Fuk%2Fbuy-glass-blenders%2F70674-blender-matt-800w-american-style-jug-blender.html&tbnid=1F_R-zhUWlBmoM&vet=12ahUKEwjiuprEiPvwAhWOwYUKHfwwDUEQMygAegUIARDYAg..i&docid=UgxOQma2QSs60M&w=1500&h=1500&q=blender&ved=2ahUKEwjiuprEiPvwAhWOwYUKHfwwDUEQMygAegUIARDYAg",

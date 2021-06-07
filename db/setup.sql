@@ -25,14 +25,14 @@ CREATE TABLE products (
 --   email VARCHAR(40),
 -- );
 
--- CREATE TABLE reviews (
---   reviews_id SERIAL PRIMARY KEY,
---   review_body VARCHAR(40),
---   created_at VARCHAR(40),
---   author VARCHAR(100),
---   helpful_vote_count INT,
---   star_count VARCHAR(40),
---   product_id INT, 
---   FOREIGN KEY (product_id) REFERENCES products(products_id)
--- );
+CREATE TABLE reviews (
+  review_id SERIAL PRIMARY KEY,
+  review_body TEXT,
+  created_at TEXT,
+  author TEXT,
+  helpful_count INT,
+  star_count TEXT,
+  product_id INT REFERENCES products(product_id)
+);
 
+INSERT

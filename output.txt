@@ -6,3 +6,10 @@ You are now connected to database "amazon_clone_test" as user "nadia".
           3 | Russell Hobbs 24360 Inspire Electric Kettle, |   300 |              0 | Personal Blender, Sboly Smoothie Blender Single Serve Small Blender for Juice Shakes and Smoothie, Smoothie Maker with 20 oz Tritan BPA-Free Blender Cup, UK Plug | https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.ikohs.com%2Fuk%2F910422%2Fblender-matt-800w-american-style-jug-blender.jpg&imgrefurl=https%3A%2F%2Fwww.ikohs.com%2Fuk%2Fbuy-glass-blenders%2F70674-blender-matt-800w-american-style-jug-blender.html&tbnid=1F_R-zhUWlBmoM&vet=12ahUKEwjiuprEiPvwAhWOwYUKHfwwDUEQMygAegUIARDYAg..i&docid=UgxOQma2QSs60M&w=1500&h=1500&q=blender&ved=2ahUKEwjiuprEiPvwAhWOwYUKHfwwDUEQMygAegUIARDYAg | t
 (3 rows)
 
+ review_id |                         review_body                          |   created_at   | author | helpful_count | star_count | product_id 
+-----------+--------------------------------------------------------------+----------------+--------+---------------+------------+------------
+         1 | Great product, happy with my purchase                        | 1511354163389  | AT     |             5 | 5          |    2       
+         2 | Item looked like it had been used before, requested a refund | 1479818163389  | Sarah  |             2 | 2          |    1      
+         3 | Regular shmegular                                            | 11416746163389 | AT     |             5 | 2          |    3      
+(3 rows)
+
