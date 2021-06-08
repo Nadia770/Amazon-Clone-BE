@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Nadia770/Amazon-Clone-BE#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "knex": "^0.95.6",
     "pg": "^8.6.0"
   },
