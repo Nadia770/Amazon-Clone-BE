@@ -16,14 +16,15 @@ CREATE TABLE products (
   in_stock BOOLEAN
 );
 
--- CREATE TABLE users (
---   users_id SERIAL PRIMARY KEY,
---   username VARCHAR(40),
---   users_name VARCHAR(40),
---   avatar_url VARCHAR(100),
---   helpful_vote_count INT,
---   email VARCHAR(40),
--- );
+CREATE TABLE users (
+  users_id SERIAL PRIMARY KEY,
+  username VARCHAR(40),
+  users_name VARCHAR(40),
+  avatar_url TEXT,
+  helpful_vote_count INT,
+  email TEXT,
+  country VARCHAR(40)
+);
 
 CREATE TABLE reviews (
   review_id SERIAL PRIMARY KEY,
