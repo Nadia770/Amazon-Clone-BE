@@ -1,7 +1,9 @@
 const { fetchAllProducts } = require("../Models/productsModel");
 
 exports.getAllProducts = (req, res, next) => {
-  fetchAllProducts()
+  const query = req;
+
+  fetchAllProducts(query)
     .then((products) => {
       res.status(200).send({ products });
     })
