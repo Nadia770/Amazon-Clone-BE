@@ -2,4 +2,5 @@
 
 SELECT * FROM products;
 SELECT * FROM reviews;
+SELECT * FROM users;
 
