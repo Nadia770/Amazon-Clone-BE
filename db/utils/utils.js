@@ -19,7 +19,6 @@ exports.changeProductsKey = (
 
     newObj[newKey3] = newObj[keyToReplace3];
     delete newObj[keyToReplace3];
-    console.log(newObj);
     return newObj;
   });
 };

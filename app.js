@@ -1,13 +1,7 @@
 const express = require("express");
 const app = express();
-apiRouter = require("./Router/apiRouter");
-const dbConnection = require("./db/dbConnection");
+const apiRouter = require("./Router/apiRouter");
 
-beforeEach(() => dbConnection.seed.run());
-afterAll(() => dbConnection.destroy());
-
-describe("Name of the group", () => {
-  test("should ", () => {});
-});
+app.use("/api", apiRouter);
 
 module.exports = app;

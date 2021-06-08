@@ -45,7 +45,6 @@ exports.seed = function (knex) {
             "country",
             "location"
           );
-          console.log(formattedUsersData);
           return knex.insert(formattedUsersData).into("users");
         });
     });

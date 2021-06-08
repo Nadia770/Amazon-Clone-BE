@@ -36,4 +36,3 @@ CREATE TABLE reviews (
   product_id INT REFERENCES products(product_id)
 );
 
-INSERT

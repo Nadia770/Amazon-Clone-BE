@@ -1,9 +1,9 @@
-const fetchAllProducts = require();
+const { fetchAllProducts } = require("../Models/productsModel");
 
 exports.getAllProducts = (req, res, next) => {
   fetchAllProducts()
-    .then((articles) => {
-      res.status(200).send(articles);
+    .then((products) => {
+      res.status(200).send({ products });
     })
     .catch((err) => {
       next(err);
