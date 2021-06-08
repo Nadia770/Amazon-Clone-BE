@@ -32,6 +32,21 @@ exports.seed = function (knex) {
         "product",
         "product_id"
       );
-      return knex.insert(formattedReviewData).into("reviews").returning("*");
+      return knex
+        .insert(formattedReviewData)
+        .into("reviews")
+        .then(() => {
+          const formattedUsersData = changeProductsKey(
+            userData,
+            "users_name",
+            "name",
+            "helpful_vote_count",
+            "vote_count",
+            "country",
+            "location"
+          );
+          console.log(formattedUsersData);
+          return knex.insert(formattedUsersData).into("users");
+        });
     });
 };
